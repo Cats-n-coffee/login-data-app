@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const dotenv = require('dotenv').config();
+const userRoutes = require('./routes/appRoutes');
 
 const app = express();
 
@@ -22,6 +23,5 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs');
 
-app.get('/', (req, res) => {
-    res.render('index');
-})
+app.use(express.static('public'));
+app.use(userRoutes);
