@@ -18,7 +18,9 @@ mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
-    extname: '.hbs'
+    extname: '.hbs',
+    layoutsDir: __dirname + '/views/layouts',
+    partialsDir: __dirname + '/views/partials'
 }));
 
 app.set('view engine', 'hbs');
