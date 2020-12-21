@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const dotenv = require('dotenv').config();
+const bodyParser = require('body-parser');
 const userRoutes = require('./routes/appRoutes');
 
 const app = express();
@@ -26,4 +27,7 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 
 app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(userRoutes);
