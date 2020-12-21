@@ -6,13 +6,11 @@ router.get('/', userControllers.homepageGet);
 
 router.get('/login', userControllers.loginGet);
 
-// router.post('/login', (req, res) => {
-//     console.log('login post')
-// })
+router.post('/login', userControllers.loginPost);
 
 router.get('/signup', userControllers.signupGet);
 
-// router.post('/signup', (req, res) => {
-//     console.log('signup post')
-// })
+router.post('/signup', userControllers.signupPost);
+
+
 module.exports = router;
