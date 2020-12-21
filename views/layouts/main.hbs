@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles.css">
     
-    <title>Main Page</title>
+    <title>My New App | {{title}}</title>
 </head>
 <body>
     <div class="container">
+        {{> header }}
         {{{body}}}
+        {{> footer}}
     </div>
     <script src="/index.js"></script>
 </body>
