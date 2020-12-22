@@ -12,11 +12,12 @@ router.get('/signup', userControllers.signupGet);
 
 router.post('/signup', userControllers.signupPost);
 
-router.get('/portal', userControllers.portalGet);
+//router.get('/portal', userControllers.portalGet);
 
 router.put('/portal', userControllers.portalPut);
 
 router.delete('/portal', userControllers.portalDelete);
 
+router.get('/logout', userControllers.logoutGet);
 
 module.exports = router;
