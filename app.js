@@ -4,6 +4,8 @@ const exphbs = require('express-handlebars');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/appRoutes');
+const { verifyToken, requireToken } = require('./middleware/authMiddleware');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -36,5 +38,10 @@ app.set('view engine', 'hbs');
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
+app.get('*', verifyToken);
+app.get('/portal', requireToken, (req, res) => {
+    res.render('portal', { title: 'My Portal' });
+})
 app.use(userRoutes);
