@@ -15,7 +15,7 @@ const UserSchema = new Schema({
     },
     email: {
         type: String,
-        match: [re, 'Please a valid email address matching this format: myemail@email.com'],
+        match: [re, 'Please enter a valid email address matching this format: myemail@email.com'],
         required: [true, 'Please enter an email address'],
         unique: true,
     },
