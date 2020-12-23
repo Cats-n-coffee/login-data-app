@@ -8,6 +8,24 @@ const createToken = (id) => {
     return jwt.sign({ id }, secret, { expiresIn: maxAge })
 }
 
+const handleErrors = (err) => {
+    if (err.message === 'incorrect email'){
+        return 'Incorrect email';
+    }
+    if (err.message === 'incorrect password') {
+        return 'Incorrect password';
+    }
+    if (err.errors['username']) {
+        return err.errors['username'].message;
+    }
+    if (err.errors['email']) {
+        return err.errors['email'].message;
+    }
+    if (err.errors['password']) {
+        return err.errors['password'].message;
+    }
+}
+
 module.exports.homepageGet = (req, res, next) => {
     res.render('index', { title: 'Home' });
 };
@@ -29,7 +47,8 @@ module.exports.loginPost = async (req, res, next) => {
         
     }
     catch (err) {
-        console.log(err);
+        const newErr = handleErrors(err);
+        console.log(newErr);
     }
 };
 
@@ -38,27 +57,6 @@ module.exports.signupGet = (req, res, next) => {
 };
 
 module.exports.signupPost = async (req, res, next) => {
-
-    // try {
-    //     const user = await new User({ 
-    //         username: req.body.username,
-    //         email: req.body.email, 
-    //         password: req.body.password
-    //      }); 
-    //     user.save().then(newPost => {
-    //         const token = createToken(user._id);
-    //         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-    //         res.send(newPost);
-            
-    //         //res.redirect(301, '/')
-    //     }, (err) => {
-    //         res.status(400).send(err)//.render('index');
-    //     });
-        
-    // }
-    // catch (err) {
-    //     console.log(err)
-    // }
 
     const { username, email, password } = req.body;
 
@@ -70,7 +68,8 @@ module.exports.signupPost = async (req, res, next) => {
         
     }
     catch (err) {
-        console.log(err)
+        const newErr = handleErrors(err);
+        console.log(newErr)
     }
     
 };
