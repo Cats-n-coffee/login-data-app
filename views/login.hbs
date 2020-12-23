@@ -1,4 +1,5 @@
 <div class="login-div forms">
+    <div class="error-div"></div>
     <form class="login-form">
         <div class="login-email form-row-1">
             <label for="email">Email</label>
@@ -17,6 +18,9 @@
 <script type="text/javascript">
 
     const loginForm = document.getElementsByClassName('login-form')[0];
+    const errorDiv = document.getElementsByClassName('error-div')[0];
+
+    errorDiv.innerText = '';
 
     loginForm.addEventListener('submit', userLogin);
 
@@ -37,6 +41,9 @@
             
             if (content.user) {
                 location.assign('/portal');
+            }
+            if (content.error) {
+                errorDiv.innerText = content.error;
             }
         }
         catch (err) {
