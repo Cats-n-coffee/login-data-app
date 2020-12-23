@@ -1,4 +1,5 @@
 <div class="signup-div forms">
+    <div class="error-div"></div>
     <form class="signup-form">
         <div class="signup-username form-row-1">
             <label for="username-su">Username</label>
@@ -22,6 +23,9 @@
 
     const submitSignup = document.getElementsByClassName('submit-signup')[0];
     const signupForm = document.querySelector('.signup-form');
+    const errorDiv = document.getElementsByClassName('error-div')[0];
+
+    errorDiv.innerText = '';
 
     signupForm.addEventListener('submit', userSignup);
 
@@ -43,6 +47,9 @@
 
             if (content.user) {
                 location.assign('/portal');
+            }
+            if (content.error) {
+                errorDiv.innerText = content.error;
             }
         }
         catch (err) {
