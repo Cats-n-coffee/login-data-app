@@ -10,10 +10,10 @@ const createToken = (id) => {
 
 const handleErrors = (err) => {
     if (err.message === 'incorrect email'){
-        return 'Incorrect email';
+        return 'Incorrect email or password';
     }
     if (err.message === 'incorrect password') {
-        return 'Incorrect password';
+        return 'Incorrect email or password';
     }
     if (err.errors['username']) {
         return err.errors['username'].message;
@@ -48,6 +48,7 @@ module.exports.loginPost = async (req, res, next) => {
     }
     catch (err) {
         const newErr = handleErrors(err);
+        res.status(401).json({ error: newErr });
         console.log(newErr);
     }
 };
@@ -69,6 +70,7 @@ module.exports.signupPost = async (req, res, next) => {
     }
     catch (err) {
         const newErr = handleErrors(err);
+        res.status(400).json({ error: newErr });
         console.log(newErr)
     }
     
