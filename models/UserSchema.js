@@ -3,24 +3,27 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const Schema = mongoose.Schema;
+const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const UserSchema = new Schema({
     username: {
         type: String,
-        required: true,
-        minlength: 4,
-        maxlength: 12
+        required: [true, 'Please enter a username'],
+        minlength: [4, 'Username must be at least 4 characters'],
+        maxlength: [12, 'Username must be 12 characters maximum'],
+        trim: true,
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        match: [re, 'Please a valid email address matching this format: myemail@email.com'],
+        required: [true, 'Please enter an email address'],
+        unique: true,
     },
     password: {
         type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 25
+        required: [true, 'Please enter a password'],
+        minlength: [6, 'Password must be at least 6 characters'],
+        maxlength: [25, 'Password must be 25 characters maximum'],
     }
 });
 
