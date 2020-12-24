@@ -1,0 +1,22 @@
+.button-1 {
+    background-color: $bright-orange;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+    transition: all 600ms ease-in-out;
+
+    a {
+        color: white;
+    }
+}
+
+.button-1:hover {
+    background-color: $medium-purple;
+
+    a:hover {
+        color: white;
+        border: none;
+    }
+}
