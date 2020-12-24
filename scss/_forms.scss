@@ -1,0 +1,42 @@
+.forms {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 25%;
+    padding: 2.5em 3em 3em 3em;
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2em;
+
+        label {
+            font-size: 1.7em;
+            padding-bottom: .5em;
+            padding-top: .5em;
+        }
+
+        input {
+            font-family: $font-stack;
+            font-size: 1.5em;
+            padding: .5em .3em;
+            background: $light-grey;
+            border: none;
+        }
+    }
+
+    .button-1 {
+        font-size: 1.4em;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        margin-left: 31%;
+    }
+}
+
+.error-div{
+    background: $light-red;
+    padding: 1em;
+    border: 1px solid $dark-red;
+    font-size: 1.5em;
+    display: none;
+}
