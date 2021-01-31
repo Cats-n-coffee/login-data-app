@@ -1,3 +1,31 @@
 <div class="content">
-    <h1>Welcome to your portal</h1>
+    <div class="portal-page-container">
+        <h1>Welcome to your portal</h1>
+    </div>
 </div>
+
+{{#section 'script'}}
+
+<script type="text/javascript">
+
+// add an if statment for error the buttons being already declared while they're not on the screen
+   if(document.cookie !== 'undefined') {
+       const openMobileMenuBtn = document.getElementById('hamburger-menu');
+        const closeMobileMenuBtn = document.getElementById('close-hamburger');
+        const mobileMenu = document.getElementById('mobile-menu-list');
+
+        openMobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMobileMenuBtn.addEventListener('click', toggleMenu);
+
+        function toggleMenu() {
+            console.log('toggle')
+            openMobileMenuBtn.classList.toggle('open');
+            closeMobileMenuBtn.classList.toggle('close');
+            mobileMenu.classList.toggle('show');
+        }
+   }
+        
+ 
+</script>
+
+{{/section}}

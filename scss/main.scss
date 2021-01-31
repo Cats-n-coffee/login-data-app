@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+// Variables
+// Fonts
+$font-stack: 'Montserrat', sans-serif;
+
+// Backgrounds
+$background-middle: linear-gradient(to top, rgb(136, 185, 250), rgb(207, 159, 247), rgb(252, 172, 232), rgb(252, 192, 143), white);
+$background-white-boxes: rgba(255, 255, 255, 0.6);
+$background-menu: rgb(252, 172, 232);
+
+// Colors
+$bright-orange: rgb(250, 105, 8);
+$medium-purple: rgb(160, 57, 245);
+$light-grey: rgb(226, 225, 225);
+$light-red: rgb(253, 205, 205);
+$dark-red: rgb(212, 1, 1);
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    font-size: 10px;
+}
+
+body {
+    font-family: $font-stack;
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.container {
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr 30px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 
+            "header"
+            "main-content"
+            "footer";
+}
+
+footer {
+    grid-area: footer;
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style-type: none;
+}
+
+.content {
+    grid-area: main-content;
+    padding: 0 1.5em;
+    background: $background-middle;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+}
+
+// Partials
+@import 'buttons';
+@import 'forms';
+@import 'header';
+@import 'index';
+@import 'login';
+@import 'signup';
+@import 'portal';

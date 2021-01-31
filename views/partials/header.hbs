@@ -1,9 +1,19 @@
 {{#if user}}
 <header>
-    <a href="/"><h1>My App</h1></a>
     <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
+        <a class="logo" href="/"><h1>My App</h1></a>
+        <div class="mobile-menu-open" id="hamburger-menu">
+            <span class="mobile-menu-bar"></span>
+            <span class="mobile-menu-bar"></span>
+            <span class="mobile-menu-bar"></span>
+        </div>
+        <div class="mobile-menu-close" id="close-hamburger">
+            <span class="mobile-menu-cross"></span>
+            <span class="mobile-menu-cross"></span>
+        </div>
+        <ul id="mobile-menu-list">
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="#">Videos</a></li>
             <li class="button-1"><a href="/logout">Logout</a></li>
         </ul>
     </nav>
@@ -11,14 +21,43 @@
 
 {{else}}
 <header>
-    <a href="/"><h1>My App</h1></a>
     <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
+        <a href="/" class="logo"><h1>My App</h1></a>
+        <ul id="index-menu">
+            {{!-- <li><a href="/">Home</a></li> --}}
             <li class="button-1"><a href="/login">Login</a></li>
-            <li class="button-1"><a href="/signup">Sign Up</a></li>
+            {{!-- <li class="button-1"><a href="/signup">Sign Up</a></li> --}}
         </ul>
     </nav>
 </header>
 
 {{/if}}
+
+
+
+{{!-- {{#section 'script'}}
+
+adding JS in the header(partial) broke the rest of the page's JS. Login and Signup JS wouldn't work
+
+<script type="text/javascript">
+
+    if (document.cookie) {
+        const openMobileMenuBtn = document.getElementById('hamburger-menu');
+        const closeMobileMenuBtn = document.getElementById('close-hamburger');
+        const mobileMenu = document.getElementById('mobile-menu-list');
+
+        openMobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMobileMenuBtn.addEventListener('click', toggleMenu);
+
+        function toggleMenu() {
+            console.log('toggle')
+            openMobileMenuBtn.classList.toggle('open');
+            closeMobileMenuBtn.classList.toggle('close');
+            mobileMenu.classList.toggle('show');
+        }
+    }
+    
+
+</script>
+
+{{/section}} --}}

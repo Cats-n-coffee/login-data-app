@@ -89,6 +89,7 @@ module.exports.portalDelete = (req, res, next) => {
 }
 
 module.exports.logoutGet = (req, res, next) => {
+    console.log('logged out')
     res.cookie('jwt', {}, { maxAge: 1 });
     res.redirect('/');
 }

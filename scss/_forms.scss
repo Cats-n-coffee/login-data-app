@@ -1,36 +1,54 @@
 .forms {
     display: flex;
     flex-direction: column;
-    background: white;
-    width: 25%;
-    padding: 2.5em 3em 3em 3em;
+    background: $background-white-boxes;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 300px;
+    height: 45vh;
 
-    .row {
+    form {
         display: flex;
         flex-direction: column;
-        padding-bottom: 2em;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 100%;
+        width: 100%;
+        padding: 2.5em 3em 3em 3em;
 
-        label {
-            font-size: 1.7em;
-            padding-bottom: .5em;
-            padding-top: .5em;
+        .row {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            // padding-bottom: 2em;
+    
+            label {
+                font-size: 1.7em;
+                padding-bottom: .5em;
+                // padding-top: .5em;
+            }
+    
+            input {
+                font-family: $font-stack;
+                font-size: 1.5em;
+                padding: .5em .3em;
+                width: 100%;
+                border-radius: 5px;
+                background: white;
+                border: none;
+            }
         }
 
-        input {
-            font-family: $font-stack;
-            font-size: 1.5em;
-            padding: .5em .3em;
-            background: $light-grey;
-            border: none;
+        .button-1 {
+            font-size: 1.4em;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            align-self: center;
+            // margin-left: 31%;
         }
     }
 
-    .button-1 {
-        font-size: 1.4em;
-        letter-spacing: .1em;
-        text-transform: uppercase;
-        margin-left: 31%;
-    }
+    
 }
 
 .error-div{
