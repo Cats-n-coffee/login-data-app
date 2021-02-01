@@ -25,13 +25,13 @@
 
     const loginForm = document.getElementsByClassName('login-form')[0];
     const errorDiv = document.getElementsByClassName('error-div')[0];
+    const passwordField = document.getElementById('password');
 
     errorDiv.innerText = '';
 
     loginForm.addEventListener('submit', userLogin);
 
     async function userLogin(e) {
-        console.log('function')
         e.preventDefault();
         const email = loginForm.email.value;
         const password = loginForm.password.value;
@@ -52,6 +52,10 @@
             if (content.error) {
                 errorDiv.style.display = 'block';
                 errorDiv.innerText = content.error;
+                passwordField.value = '';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 3000);
             }
         }
         catch (err) {
