@@ -8,7 +8,7 @@ const { verifyToken, requireToken } = require('./middleware/authMiddleware');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 5000;
 
 const mongoUser = process.env.MONGO_USER ;
 const mongoPassword = process.env.MONGO_PASSWORD ;
