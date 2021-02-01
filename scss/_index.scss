@@ -17,15 +17,25 @@
         height: 40vh;
         max-height: 350px;
         width: 90%;
-        max-width: 300px;
+        max-width: 350px;
         background: rgba(255, 255, 255, 0.6);
-        padding: 3em 2em;
+        padding: 4em 4em;
         border-radius: 10px;
 
         div {
             h2 {
                 padding-bottom: .5em;
             }
+        }
+    }
+
+    p {
+        font-size: 2em;
+        text-decoration: underline;
+        transition: all 600ms ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
         }
     }
 }
