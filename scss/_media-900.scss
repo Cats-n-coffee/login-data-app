@@ -1,0 +1,26 @@
+@media screen and (min-width: 900px) {
+    header {
+        nav {
+            .mobile-menu-open {
+                display: none;
+            }
+
+            .mobile-menu-close {
+                display: none;
+            }
+
+            #mobile-menu-list {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                height: auto;
+                max-width: 400px;
+                margin: 0;
+                padding: 0;
+                z-index: 1;
+                gap: 3em;
+            }
+        }
+    }
+}
