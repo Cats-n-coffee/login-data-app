@@ -8,6 +8,10 @@ const { verifyToken, requireToken } = require('./middleware/authMiddleware');
 const cookieParser = require('cookie-parser');
 
 const app = express();
+const port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+  }
 
 const mongoUser = process.env.MONGO_USER ;
 const mongoPassword = process.env.MONGO_PASSWORD ;
@@ -16,7 +20,7 @@ const mongoDatabase = process.env.MONGO_DATABASE ;
 const dbUri = `mongodb+srv://${mongoUser}:${mongoPassword}@cluster0.xwfkn.mongodb.net/${mongoDatabase}?retryWrites=true&w=majority`;
 
 mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-.then(result => app.listen(3000, () => { console.log('listening on port 3000') }))
+.then(result => app.listen(port, () => { console.log('listening on port 3000') }))
 .catch(err => console.log(err))
 
 app.engine('hbs', exphbs({
